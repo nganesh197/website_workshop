@@ -44,27 +44,43 @@
         <script src="nav_footer.js"></script>
     </head>
     <body> 
+        <!-- This is the where the navigation, logos, and typically elements that need to go to the top of the page reside -->
+        <!-- HTML has certain tags that automatically help you and the browser determine the type of content contained a set of tags such as <section>, <article>, <header> -->
         <header>
+            <!-- Classes are used to stylize multiple elements on an HTML page at the same time.  -->
             <div class="logo_insert">
+                <!-- a tags are used to create hyperlinks. href where you want the hyperlink to go to. -->
                 <a class="logo" href="index.html">Your Name</a>
             </div>
             <div class="header">
+                <!-- The three lines, also called a burger, that represent the menu button on the mobile version of the website. -->
                 <div class="menu-btn">
                     <span class="menu-btn__burger"></span>
                 </div>
+                <!-- All of the navigation HTML code is in navigation.html. Typically you have your navigation elements copy and pasted in every page which makes it hard if you need to change something.
+                I created a navigation.html and footer.html so that its easier to update these elements. These files are loaded through the nav_footer.js file. -->
                 <div id="navigation"></div>
             </div>
         </header>
+        <!-- Main tags denote where most of the content lies in the webpage. -->
         <main>
+            <!-- Alternative to classes, ids can also be used to stylize an element. The ID is mapped to only ONE HTML element. This is useful for navigation and for searching elements.
+            An example of how useful an ID name is: <a href="title">YOUR Title</a>. When the user clicks on this hyperlink they will not be sent to another page but scrolled down to where this ID is located within the page. -->
             <section id="title">
                 <h1>Welcome to my Website!</h1>
             </section>
         <section class="page_text">
                     <section id="profile">
+                        <!-- Lazy loading is meant to speed up the webpage loading speed by not prioritizing the loading of an image; This is useful when you have a lot of images on a page or a single high resolution and large photo.
+                        alt="" is an accessibility method for those who are visually impaired to describe what the image represents
+                        aria-labelledby helps to reference other elements to an accesible name. In this case this image's accesible name is profile. -->
+                        <!-- src points to where the image is located in your folder. -->
                         <img class="profile_pic" src="images/profile.jpg" loading="lazy" alt="Headshot image of [INSERTNAME]" aria-labelledby="profile"/>
                         <div id="profile_blurb"> 
                             <h2>I am a Masters Student at the University of Southern California specializing in Engineering Management.</h2>
+                            <!-- <br /> is a break that generates whitespace. This tag is also a self-closing tag mean you don't need to do <br></br>. <img /> is another element that is self-closing. -->
                             <br />
+                            <!-- Writing text can be hard, and so web developers typically use the Lorem ipsum generator to generate large swaths of useless text to figure out how elements will be spaced out when actual text is added. -->
                             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor tellus, luctus sit amet libero vitae, pellentesque mollis magna. Sed sagittis nec mi a sodales. Duis vel tristique neque, pretium sollicitudin nisl. Quisque finibus turpis et libero posuere rhoncus. Aliquam erat volutpat. Nullam hendrerit non nulla et dignissim. Aenean felis elit, volutpat id arcu et, ullamcorper tempor ipsum. Ut et maximus quam. Ut blandit nunc ultrices, interdum libero id, tempus dui. Aliquam sodales erat sed tellus gravida tincidunt. Morbi viverra felis at efficitur facilisis. Nulla suscipit mi vel aliquam tristique. 
                             </p>
                         </div>
@@ -101,7 +117,10 @@
                     </section>
         </section>
         </main>
-        <footer><hr /><div id="footer"> </div></footer>
+        <footer>
+            <!-- <hr /> or horizontal rule is a thematic break in an HTML page. In simple terms, it creates a line that goes horizontally across the page. -->
+            <hr /><div id="footer"> </div></footer>
+        <!-- This is another spot where javascript code is added to the page. All major code is stored in this index.js file for our case.  -->
         <script src="index.js" defer></script>
     </body>
 </html>
