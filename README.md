@@ -91,11 +91,9 @@ Changes made on your computer will not update what is on GitHub.
 
 For pushing changes via terminal, follow these commands:
 ```
-    
     git add . //adds all of your changes 
     git commit -m "INSERT A MESSAGE" //takes a snapshot of what your local repo looks like
     git push //send the snapshot to the remote (online reppo)
-    
 ```
 If the steps were done correctly, you should see changes made to the online repository. 
 
