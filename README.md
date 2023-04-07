@@ -14,14 +14,16 @@ You will need:
     - If you are using Windows, I recommend using [GitBash](https://gitforwindows.org/).
     - If you are using Linux, pressing Ctrl+Alt+T will open up terminal 
     - If you are using Mac, pressing Command+Spacebar will open up terminal 
-* GitHub\*
+* GitHub Desktop\*
     - Download [GitHub Desktop](https://desktop.github.com/)
+* GitHub account
 * Code editor
     - I recommend [VSCode](https://code.visualstudio.com/). 
 * Internet Browser
     - Google Chrome
     - Microsoft Edge
     - Safari
+
 \* If you find Terminal hard to use, then please use GitHub Desktop. This application created by GitHub will do the same work that is done on Terminal. 
 
 Terminal/GitHub Desktop will help us with cloning the repository (repo), sending updates to the online repo, and general maintainence of our local repo. The code editor is primarily how we will make updates. The browser is to see how the website/webpage will look like as well as inspect elements to debug. 
