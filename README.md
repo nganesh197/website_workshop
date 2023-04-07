@@ -11,6 +11,30 @@ Clone website to your personal repository --> Make edits --> Verify on your loca
 ## Cloning
 The credentials.json file must be generated from the https://console.cloud.google.com/. Search for the Gmail API and enable it. Then go to Credentials and created an OAuth 2.0 Client IDs credential. Download the file and rename to credentials.json and move it into the project folder. When send_day_pass() is run, the credential process will automatically run to get the necessary token values to be able to send an email.
 
+## Code Structure
+```
+├── images 
+|   └── gallery_img.jpg
+|   └── profile.jpg
+|   └── profile_1_main.jpg
+|   └── profile_2_main.jpg
+|   └── profile_3_main.jpg
+|   └── project2_sub1.jpg
+|   └── project2_sub2.jpg
+|   └── project2_sub3.jpg
+├── 404.html
+├── contact.html
+├── footer.html
+├── index.html
+├── index.js
+├── interests.html
+├── nav_footer.js 
+├── navigation.html
+├── projects.html
+├── README.md
+├── resume.html
+└────── style.css
+
 ## Going about with edits
 The ./phone_screenshots and ./watch_screenshots folders have dummy .txt files called placeholder. They need to be deleted before running the code. They were created so these folders existed in the repository.
 ## 2. Download packages and setup credentials
@@ -63,7 +87,3 @@ def send_day_pass(filepaths, email_address, to_watch):
 ```
 To change the email address, change second argument of send_day_pass() on line 142 and line 12 on setup.py to your preferred email. By default, it uses the @usc.edu email address. Additionally, if you do not have an Apple Watch/don't need solely the QR code, set to_watch to False. 
 
-
-## Things in process
-* Timeout Error: Currently, if webdriver is unable to open Chrome, the program falls into an infinite loop. This problem is being investigated further (debugging to see if the error is capturable in order to force a reboot of webdriver. 
-* Browser support: The program can only run on Chrome. If demand exists, Firefox and Chromium might be added in the future. 
