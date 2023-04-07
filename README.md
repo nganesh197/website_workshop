@@ -44,7 +44,7 @@ Using GitHub Desktop
  5. Type in the text field "nganesh197/website_workshop"
  6. GitHub Desktop will say if the cloning was successful and return to main page albeit in the "website_workshop" repo.
     - To verify if you are in the website_workshop repo, check if the current repository says "website_workshop."
-For more information on how to clone on GitHub Desktop, [here is the GitHub Desktop tutorial cloning a repo]([https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)). 
+For more information on how to clone on GitHub Desktop, [here is the GitHub Desktop tutorial cloning a repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop). 
 ## Code Structure
 ```
 ├── images 
