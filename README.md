@@ -73,8 +73,16 @@ For more information on how to clone on GitHub Desktop, [here is the GitHub Desk
 Think of index.html as the home page and where a user will typically arrive to when clicking on your website URL.
 
 ## Make edits
-
+1. Open up your code edtior
+2. Open up your repository in the code editor
+3. All design/aesthetics components of the website is in the style.css
+4. All of the conten reside in each of the html files.
+5. The javascript files deal with adding in the webpage's navigation and footer content into the HTML file and allowing for the mobile navigation bar to open and close properly.
+6. Once an edit has been, please save the file.
 
 ## Deploying website on localhost 
+To view the changes on the website on your computer, go either via your File Explorer or where your website repository is located and click on the index.html page. Technically this counts as deploying on your local machine/localhost/computer (these three terms in our case mean the same thing).
 
+## Update your online repository
+Changes made on your computer will not update what is on GitHub.
 ## Useful commands/shortcuts
