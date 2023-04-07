@@ -1,4 +1,4 @@
-# Website_workshop
+# Website workshop
 
 As part of holding a technical workshop, I have created an easy to use website template that solely uses HTML, CSS, JS for attendees to jumpstart their personal website building journey.
 
@@ -86,5 +86,17 @@ Think of index.html as the home page and where a user will typically arrive to w
 To view the changes on the website on your computer, go either via your File Explorer or where your website repository is located and click on the index.html page. Technically this counts as deploying on your local machine/localhost/computer (these three terms in our case mean the same thing).
 
 ## Update your online repository
-Changes made on your computer will not update what is on GitHub.
+Changes made on your computer will not update what is on GitHub. 
+[Follow this link to push changes via GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)
+
+For pushing changes via terminal, follow these commands:
+```
+    
+    git add . //adds all of your changes 
+    git commit -m "INSERT A MESSAGE" //takes a snapshot of what your local repo looks like
+    git push //send the snapshot to the remote (online reppo)
+    
+```
+If the steps were done correctly, you should see changes made to the online repository. 
+
 ## Useful commands/shortcuts
