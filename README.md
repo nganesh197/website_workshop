@@ -1,4 +1,4 @@
-# website_workshop
+# Website_workshop
 
 As part of holding a technical workshop, I have created an easy to use website template that solely uses HTML, CSS, JS for attendees to jumpstart their personal website building journey.
 
@@ -8,9 +8,43 @@ I tried to make use of this template as simple as possible with all of the bells
 ## Tl:dr
 Clone website to your personal repository --> Make edits --> Verify on your localhost (your computer) --> Deploy to GitHub pages --> Have a good personal website
 
-## Cloning
-The credentials.json file must be generated from the https://console.cloud.google.com/. Search for the Gmail API and enable it. Then go to Credentials and created an OAuth 2.0 Client IDs credential. Download the file and rename to credentials.json and move it into the project folder. When send_day_pass() is run, the credential process will automatically run to get the necessary token values to be able to send an email.
+## Get Started
+You will need:
+* Terminal\*
+    - If you are using Windows, I recommend using [GitBash](https://gitforwindows.org/).
+    - If you are using Linux, pressing Ctrl+Alt+T will open up terminal 
+    - If you are using Mac, pressing Command+Spacebar will open up terminal 
+* GitHub\*
+    - Download [GitHub Desktop](https://desktop.github.com/)
+* Code editor
+    - I recommend [VSCode](https://code.visualstudio.com/). 
+* Internet Browser
+    - Google Chrome
+    - Microsoft Edge
+    - Safari
+\* If you find Terminal hard to use, then please use GitHub Desktop. This application created by GitHub will do the same work that is done on Terminal. 
 
+Terminal/GitHub Desktop will help us with cloning the repository (repo), sending updates to the online repo, and general maintainence of our local repo. The code editor is primarily how we will make updates. The browser is to see how the website/webpage will look like as well as inspect elements to debug. 
+
+## Cloning
+Using Terminal
+1. Open terminal
+2. Go to the folder where this repository will reside.
+   a. Use the cd ~/<FOLDERPATH> command to get to that location (example: cd ~/Documents/Github will get me to my GitHub folder in the Documents folder).
+3. Type "git clone https://github.com/nganesh197/website_workshop.git" to start the cloning process.
+4. Terminal will say if the cloning was successful and will allow you to type a command.
+ 
+For more information on how to clone on GitHub via Terminal, [here is the GitHub tutorial cloning a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). 
+
+Using GitHub Desktop
+ 1. Open the application
+ 2. Open the left bar which shows the repository you have on your computer
+ 3. Click "Add" then "Clone repository..."
+ 4. Go to the "URL" tab 
+ 5. Type in the text field "nganesh197/website_workshop"
+ 6. GitHub Desktop will say if the cloning was successful and return to main page albeit in the "website_workshop" repo.
+    - To verify if you are in the website_workshop repo, check if the current repository says "website_workshop."
+For more information on how to clone on GitHub Desktop, [here is the GitHub Desktop tutorial cloning a repo]([https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)). 
 ## Code Structure
 ```
 ├── images 
@@ -35,55 +69,12 @@ The credentials.json file must be generated from the https://console.cloud.googl
 ├── resume.html
 └────── style.css
 
-## Going about with edits
-The ./phone_screenshots and ./watch_screenshots folders have dummy .txt files called placeholder. They need to be deleted before running the code. They were created so these folders existed in the repository.
-## 2. Download packages and setup credentials
-There are a few dependent python packages to download before running this program (can be found in requirements.txt)
-```python
-python -m pip install -r requirements.txt
 ```
-Setup.py handles all of the setup code from obtaining the login credentials to running the webscraper. If credentials are not found, you will be prompted to enter them in the command line. If they are found, the automation software will run.
-```python
-#uncomment this function to handle all setup processes as well as hash the credentials
-#will be prompted in command line to input USC credentials
-run_everything()
-``` 
+Think of index.html as the home page and where a user will typically arrive to when clicking on your website URL.
+
+## Make edits
+
+
 ## Deploying website on localhost 
-* Schedule when to run Auto Troy:
-```python
- python scheduler.py
-```
-If you do not want the smartwatch capable QR code, set `to_watch=False`. If you do not have 2 Factor Authentication set up, set `two_FA_enabled=False`.  
 
-  _Default scheduled to run at 12:59am and needs to be running at scheduled time to work_
-
-To change when the program runs, look at line 10 in schedule_date.py (shown below) and write in your preferred time (24 hour period).
-```python
- if(hour==0 and minute==59):
-     run_everything()
-     time.sleep(65)
-```
-* Manually run Auto Troy:
-```python
- python web_scraper.py
-```
-## Two Factor Authentication (2FA)
-Auto Troy now supports 2FA! If `two_FA_enabled=True` in scheduler.py, just send yourself an email with the subject line "[RUN AUTO TROY]" and wait 1-2 minutes to get 2FA notification. The program waits for a minutes before running the rest of the program normally. For added security, the program sends a queried response to the GMail API asking specifically for emails with the subject line "[RUN AUTO TROY]" and can only see emails that matches this query. 
-
-## Handling of login credentials 
-The login credentials are hashed before they are stored. While the credentials are only stored locally, hashing it provides an added security layer. Furthermore, adding in the credentials to the environmental variables is a good idea. **This does not mean that this program or author is responsible if this information is leaked!** 
-
-## Sending emails
-send_email.py handles commands to send an email. The send_day_pass() is run by web_scraper.py once the screenshot(s) have been recorded: 
-```python
-def send_day_pass(filepaths, email_address, to_watch):
-    phone_filepath, watch_filepath = filepaths
-    get_service = get_creds()
-    phone_develop_message = create_message_with_attachment(email_address, email_address, '[PHONE] TROJANCHECK QR SCREENSHOT', 'Screenshot of QR Code taken by Automate TrojanCheck. Person has complied with USC policies and is using this program to obtain QR code.\n', phone_filepath)
-    watch_develop_message = create_message_with_attachment(email_address, email_address, '[WATCH] TROJANCHECK QR SCREENSHOT', 'Screenshot of QR Code taken by Automate TrojanCheck. Person has complied with USC policies and is using this program to obtain QR code.\n', watch_filepath)
-    phone_get_out_of_here = send_message(get_service, user_id='me', message=phone_develop_message)
-    if to_watch:
-      watch_get_out_of_here = send_message(get_service, user_id='me', message=watch_develop_message)
-```
-To change the email address, change second argument of send_day_pass() on line 142 and line 12 on setup.py to your preferred email. By default, it uses the @usc.edu email address. Additionally, if you do not have an Apple Watch/don't need solely the QR code, set to_watch to False. 
-
+## Useful commands/shortcuts
