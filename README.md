@@ -1,6 +1,6 @@
 # Website workshop
 
-As part of holding a technical workshop, I have created an easy to use website template that solely uses HTML, CSS, JS for attendees to jumpstart their personal website building journey.
+As part of holding a technical workshop, I have created an easy to use website template that solely uses HTML, CSS, JS for attendees to jumpstart their personal website building journey. The [live version of this website can be found via this link](https://nirajganesh.org/website_workshop/).
 
 ## Forewarning!!!
 I tried to make use of this template as simple as possible with all of the bells and whistles of a well-made website. By no means, do I expect it to 100% work all of the time but I hope that issues that do arise can be solved with a quick Google Search and/or reference to StackOverflow.  
@@ -97,4 +97,9 @@ For pushing changes via terminal, follow these commands:
 ```
 If the steps were done correctly, you should see changes made to the online repository. 
 
-## Useful commands/shortcuts
+## Getting your free GitHub URL
+1. Take the your copy of the repository and rename it as your GitHub Username. 
+2. Go to Setting > Pages
+3. Make sure you are deploying from source and from the main branch (you can also deploy from different branches too!)
+4. Ensure that the "Enforce HTTPS" is checked
+5. Once those steps have been done, you should be able to see your website at \<YOUR-USERNAME\>.github.io
