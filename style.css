@@ -46,7 +46,7 @@ body{
     more complicated.
 
     - em/rem: stands for "root em" and is set by the font size of the html tag which is by default set to 16px. rem is better than em/px because 
-    tags/elements can dynamically shift as the page size increase or decrease and em/px do not handle that shift well.
+    tags/elements can dynamically shift as the page size increase or decrease.
     - vh/vw: viewport height/viewport width uses the size of the browser viewport (window) to size the elements. If you are resizing the height of an 
     element, use vh and vice versa for width.
     - %: Percentage is based on the available space for that element. Definitely be careful using % when sizing an image.
@@ -523,10 +523,9 @@ border of the button increases in 0.8 seconds. */
 }
 
 
-
 /* This is where our website becomes responsive. The line below is like an if-statement. So if the webpage is now 1024px, then we want to change
 how the content is viewed on the website and that is simply what the code does: adjust the content for larger screens. */
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     /* menu burger not visible on larger screens */
     .mobile{
         display: none;
