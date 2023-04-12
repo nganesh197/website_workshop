@@ -1,7 +1,11 @@
 /* Imported fonts (both primary and secondary font) (from fonts.google.com */
+/* This is primarily how we can import information outside of our css file */
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+/* Root is the where changes affect the rest of the webpage */
 :root{
+    /* These are variables that are setting the colors. If we wanted to change the background color from purple to blue, we only need to 
+    change the --accent variable. Else, we would need to change the color in every single element where that color is used. */
     --background: #fff;
     --h1: #111;
     --h2: rgba(34, 34, 34, 0.954);
@@ -9,30 +13,62 @@
     --accent: #551aaf;
     --gray: #818181;
 
+    /* These variables handle the fonts used in the website. In case the Josefin Sans font does not load, we tell the browser to use the 
+    browser's default font style as backup. This is useful when the font could not be loaded properly but we still want the site to retain 
+    a similar visual appearance. */
     --font-primary: 'Josefin Sans', sans-serif;
     /* 'Cardo', serif; */
     --font-secondary: 'Josefin Sans', sans-serif;
 
+    /* Margin and padding define the spacing around the element. A good analogy would be parking a car. Margin would be the space you want 
+    between your car and the car next to you. Padding would be the spacing of the interior body panels, like the dashboard, and you. */
     margin: 0;
     padding: 0;
+
+    /* Box-sizing tells how big the elements can be within the webpage with respect to the root. A in-depth explanation can be found via this 
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing. */
     box-sizing: border-box;
+    /* Width 100% means we want the max width of the page. */
     width: 100%;
 }
 
 
 body{
+    /* Remember how we created variables in root, here is how we use it. So in this case we want the color value stored in --background variable. To
+    access this variable, we use var(VARIABLE_NAME). */
     background-color: var(--background);
+    /* min-height is the minimum height that the body can be. This is useful so that no matter what, the body element will take up the full 
+    height of the browser window. */
     min-height: 100vh;
+
+    /* Sizing Guide:
+    Web development has a few ways to size elements on a webpage that were meant to simplify web development but have ironically make things 
+    more complicated.
+
+    - em/rem: stands for "root em" and is set by the font size of the html tag which is by default set to 16px. rem is better than em/px because 
+    tags/elements can dynamically shift as the page size increase or decrease and em/px do not handle that shift well.
+    - vh/vw: viewport height/viewport width uses the size of the browser viewport (window) to size the elements. If you are resizing the height of an 
+    element, use vh and vice versa for width.
+    - %: Percentage is based on the available space for that element. Definitely be careful using % when sizing an image.
+    - px: Pixel is the most common and easiest way to size an element BUT has one fatal flaw: responsive webpages. If you switch between devices,
+    the elements on a webpage will not react properly and cause a lot of pain and problems.    
+    */
+
     width:100%;
     padding: 0px;
     margin: 0px;
 }
 
+/* h1 -> h6, p, a are text tags. */
+
 h1, h2, h3{
+    /* font-family is used to define the font used for that tag */
     font-family: var(--font-primary);
 }
 
 h4, h5, h6, p, a, body{
+    /* If you end up using secondary font, this section helps enact those changes. At the moment, this font-family is set to the primary font 
+    Josefin Sans. You can change this by changing --font-secondary variable value. */
     font-family: var(--font-secondary);
 }
 
@@ -40,12 +76,27 @@ h1{
     padding: 0;
     margin: 0;
     font-size: 4rem;
+    /* font-weight gives more precision than just bolding. For more information on font-weight, check out this website:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight; */
     font-weight: 700;
     color: var(--h1);
 }
 
 h2{
     padding: 0;
+    /* Spacing:
+    Web developers tend to use shortcuts to set spacing. With margin and padding spacing, you have three ways to define the spacing: 
+    - margin: 1rem;
+    - margin: 1rem 1rem;
+    - margin: 1rem 1rem 1rem 1rem;
+
+    The first way says that you want 1rem margins all around the element. The second way says you want 1rem margins for the top and bottom and
+    1rem margins for the left and right. The third way says you want 1rem on the top, 1rem on the right, 1rem on the bottom, and 1rem on the left.
+
+    Now if you just want 1rem margins for ONLY the top, you can also use "margin-top: 1rem;" or "margin: 1rem 0 0 0;" Simply put there are a lot of ways
+    to get to the same result.
+    
+    */
     margin: 0 0 1rem 0;
     font-size: 2rem;
     font-weight: 600;
@@ -61,9 +112,13 @@ h4{
     font-size: 1.6rem;
 }
 
+/* hr breaks up a page and is similar to a page break.  */
+
 hr{
     color: var(--gray);
 }
+
+/* #<NAME> is an ID. Taking a look at the index.html file, you will find the #news id in the news section of the page. */
 
 #news h4{
     color: var(--accent);
@@ -76,22 +131,28 @@ p{
     color: var(--p);
 }
 
+/* ul, ol, and li are ways to denote a list. ul stands for unonrdered list; ol stands for ordered list; and li stands for list */
+
 footer li, footer ul, nav ul, nav li{
+    /* list-style-type tells the browser how you want the bullet point for the list to look like. For us, we don't want to show the bullet points.  */
     list-style-type: none;
+    /* list-style-position can be easily understood via this website link: https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position. */
     list-style-position:inside;
     margin:0;
     padding:0.5rem; 
 }
-
+/* i tag handles icon styles. To use more icons, I recommend looking at fontawesome for other icons you want in your website. */
 footer i{
     color: var(--accent);
 }
 
+/* This block of code handles the spacing of our tabs in the navigation bar of our website. */
 nav li{
     padding: 1rem 0.5rem;
     margin: 0.5rem;
 }
 
+/* The next two code blocks handle the spacing of the logo. */
 .logo{
     padding: 1rem 0.5rem;
     margin: 0.5rem 0.5rem 0.5rem 2rem;
@@ -100,6 +161,7 @@ nav li{
     margin-top: 1.8rem;
 }
 
+/* Sometimes we just want to stylize only a specific element in a webpage like the navigation links and logo. */
 a[class="menu-nav__link"], a[class="logo"]{
     text-decoration: none;
     color: var(--accent);
@@ -112,12 +174,17 @@ header, footer{
     margin: 0;
     text-align: center;
     background-color: var(--background);
+    /* border-bottom creates a border at the bottom of the header and footer element. The solid command denotes 
+    what type of border line should be made, .1rem notes how thick the border should be, and #cfcfcf says what the border color should be.  */
     border-bottom: solid .1rem #cfcfcf; 
 }
 
 header{
     height: 10vh;
+    /* position defines how the element is placed in the webpage. position: fixed tells the browser that the header will stay at the top of the 
+    page even if the user scrolls down the page. */
     position: fixed;
+    /* z-index tells the browser how important an element is. A 1000 value means that the element is VERY important. */
     z-index: 1000;
 }
 
@@ -131,33 +198,41 @@ section{
     margin: 0rem 0rem 2rem 0rem;
 }
 
+/* This class helps with showing some content only when the user is viewing the website on a desktop. */
 .desktop{
     display: none;
 }
-
+/* This class helps with showing some content only when the user is viewing the website on a monitor/TV. */
 .large_screen{
     display: none;
 }
 
+/* Visibility and display do similar work. BUT if an element has a visibility set to hidden, it will still take up space.
+If the element has a display: none, it will not take up space on the website.  */
 .header{
     visibility: hidden;
     z-index: 1000;
     padding: 1rem;
     margin: 0rem;
     height: 0vh;
-    transition: 0s;
 }
-
+/* When on mobile, when the menu (also called a burger) is pressed, this class gets added into the navigation bar and shows the menu on 
+the webpage. */
 .header.open{
+    /* visibility sets to visible shows the menu */
     visibility: visible;
+
+    /* When the navigation menu, we want the menu to take up the entire space. Setting the height and weight to the full viewport size achieves this. */
     height: 100vh;
     width: 100vw;
     margin:0;
+    /* This prevents you from scrolling the navigation bar when it is opened. */
     overflow-y: hidden;
     background-color: var(--background);
 }
 
 a.logo, .navigation, footer{
+    /* aligns the text to the center of the page. Sidenote: centering elements can be hard and requires some patience. */
     text-align: center;
 }
 
@@ -167,10 +242,13 @@ a.logo, .navigation, footer{
     width: 100%;
     height: 40vh;
     background-color: var(--accent);
+    /* background-image is set to an svg. svg are like editable images but better. If you resize an SVG, the picture quality does not go down, 
+    you can edit the colors of an svg, you can create really cool patterns such as the ones found on this website: 
+    https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/*/
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28' width='56' height='28'%3E%3Cpath fill='%23836ea4' fill-opacity='0.4' d='M56 26v2h-7.75c2.3-1.27 4.94-2 7.75-2zm-26 2a2 2 0 1 0-4 0h-4.09A25.98 25.98 0 0 0 0 16v-2c.67 0 1.34.02 2 .07V14a2 2 0 0 0-2-2v-2a4 4 0 0 1 3.98 3.6 28.09 28.09 0 0 1 2.8-3.86A8 8 0 0 0 0 6V4a9.99 9.99 0 0 1 8.17 4.23c.94-.95 1.96-1.83 3.03-2.63A13.98 13.98 0 0 0 0 0h7.75c2 1.1 3.73 2.63 5.1 4.45 1.12-.72 2.3-1.37 3.53-1.93A20.1 20.1 0 0 0 14.28 0h2.7c.45.56.88 1.14 1.29 1.74 1.3-.48 2.63-.87 4-1.15-.11-.2-.23-.4-.36-.59H26v.07a28.4 28.4 0 0 1 4 0V0h4.09l-.37.59c1.38.28 2.72.67 4.01 1.15.4-.6.84-1.18 1.3-1.74h2.69a20.1 20.1 0 0 0-2.1 2.52c1.23.56 2.41 1.2 3.54 1.93A16.08 16.08 0 0 1 48.25 0H56c-4.58 0-8.65 2.2-11.2 5.6 1.07.8 2.09 1.68 3.03 2.63A9.99 9.99 0 0 1 56 4v2a8 8 0 0 0-6.77 3.74c1.03 1.2 1.97 2.5 2.79 3.86A4 4 0 0 1 56 10v2a2 2 0 0 0-2 2.07 28.4 28.4 0 0 1 2-.07v2c-9.2 0-17.3 4.78-21.91 12H30zM7.75 28H0v-2c2.81 0 5.46.73 7.75 2zM56 20v2c-5.6 0-10.65 2.3-14.28 6h-2.7c4.04-4.89 10.15-8 16.98-8zm-39.03 8h-2.69C10.65 24.3 5.6 22 0 22v-2c6.83 0 12.94 3.11 16.97 8zm15.01-.4a28.09 28.09 0 0 1 2.8-3.86 8 8 0 0 0-13.55 0c1.03 1.2 1.97 2.5 2.79 3.86a4 4 0 0 1 7.96 0zm14.29-11.86c1.3-.48 2.63-.87 4-1.15a25.99 25.99 0 0 0-44.55 0c1.38.28 2.72.67 4.01 1.15a21.98 21.98 0 0 1 36.54 0zm-5.43 2.71c1.13-.72 2.3-1.37 3.54-1.93a19.98 19.98 0 0 0-32.76 0c1.23.56 2.41 1.2 3.54 1.93a15.98 15.98 0 0 1 25.68 0zm-4.67 3.78c.94-.95 1.96-1.83 3.03-2.63a13.98 13.98 0 0 0-22.4 0c1.07.8 2.09 1.68 3.03 2.63a9.99 9.99 0 0 1 16.34 0z'%3E%3C/path%3E%3C/svg%3E");
     text-align: center;
 }
-
+/* subtitles is similar to title but the height of the elements are different. */
 .subtitles {
     margin: 0;
     padding: 0;
@@ -180,7 +258,7 @@ a.logo, .navigation, footer{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28' width='56' height='28'%3E%3Cpath fill='%23836ea4' fill-opacity='0.4' d='M56 26v2h-7.75c2.3-1.27 4.94-2 7.75-2zm-26 2a2 2 0 1 0-4 0h-4.09A25.98 25.98 0 0 0 0 16v-2c.67 0 1.34.02 2 .07V14a2 2 0 0 0-2-2v-2a4 4 0 0 1 3.98 3.6 28.09 28.09 0 0 1 2.8-3.86A8 8 0 0 0 0 6V4a9.99 9.99 0 0 1 8.17 4.23c.94-.95 1.96-1.83 3.03-2.63A13.98 13.98 0 0 0 0 0h7.75c2 1.1 3.73 2.63 5.1 4.45 1.12-.72 2.3-1.37 3.53-1.93A20.1 20.1 0 0 0 14.28 0h2.7c.45.56.88 1.14 1.29 1.74 1.3-.48 2.63-.87 4-1.15-.11-.2-.23-.4-.36-.59H26v.07a28.4 28.4 0 0 1 4 0V0h4.09l-.37.59c1.38.28 2.72.67 4.01 1.15.4-.6.84-1.18 1.3-1.74h2.69a20.1 20.1 0 0 0-2.1 2.52c1.23.56 2.41 1.2 3.54 1.93A16.08 16.08 0 0 1 48.25 0H56c-4.58 0-8.65 2.2-11.2 5.6 1.07.8 2.09 1.68 3.03 2.63A9.99 9.99 0 0 1 56 4v2a8 8 0 0 0-6.77 3.74c1.03 1.2 1.97 2.5 2.79 3.86A4 4 0 0 1 56 10v2a2 2 0 0 0-2 2.07 28.4 28.4 0 0 1 2-.07v2c-9.2 0-17.3 4.78-21.91 12H30zM7.75 28H0v-2c2.81 0 5.46.73 7.75 2zM56 20v2c-5.6 0-10.65 2.3-14.28 6h-2.7c4.04-4.89 10.15-8 16.98-8zm-39.03 8h-2.69C10.65 24.3 5.6 22 0 22v-2c6.83 0 12.94 3.11 16.97 8zm15.01-.4a28.09 28.09 0 0 1 2.8-3.86 8 8 0 0 0-13.55 0c1.03 1.2 1.97 2.5 2.79 3.86a4 4 0 0 1 7.96 0zm14.29-11.86c1.3-.48 2.63-.87 4-1.15a25.99 25.99 0 0 0-44.55 0c1.38.28 2.72.67 4.01 1.15a21.98 21.98 0 0 1 36.54 0zm-5.43 2.71c1.13-.72 2.3-1.37 3.54-1.93a19.98 19.98 0 0 0-32.76 0c1.23.56 2.41 1.2 3.54 1.93a15.98 15.98 0 0 1 25.68 0zm-4.67 3.78c.94-.95 1.96-1.83 3.03-2.63a13.98 13.98 0 0 0-22.4 0c1.07.8 2.09 1.68 3.03 2.63a9.99 9.99 0 0 1 16.34 0z'%3E%3C/path%3E%3C/svg%3E");
     text-align: center;
 }
-
+/* Each of these ids change the background image at the top of each page. */
 #projects{
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(264, 74%, 39%, 1)'/><path d='M10-10L20 0v10L10 0zM20 0L10-10V0l10 10zm0 10L10 0v10l10 10zm0 10L10 10v10l10 10zM0 20l10-10v10L0 30zm0-10L10 0v10L0 20zM0 0l10-10V0L0 10z'  stroke-width='1' stroke='hsla(264, 74%, 47%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")      
 }
@@ -198,10 +276,17 @@ a.logo, .navigation, footer{
 }
 
 #title h1, .subtitles h1{
+    /* As mentioned before, position tells the browser how you want this element to be positioned. This code block allows for the title of each page
+    to be center of the webpage. Position: relative means you want the element with respect to its parent element. top, left allows you to refine 
+    the position by saying how far away from the top and left of the webpage
+    you want for this element. */
     position: relative;
     padding: 1rem;
     top: 50%;
     left: 50%;
+    /* transform allows you to shift the back the element. Even though we shifted the element using top and left, transform gives more power to
+    fine-tune where you want the element. To be honest, the best way to see how this works is by messing with the values in translate to see the 
+    difference. */
     transform: translate(-50%, -50%);
     color: var(--background);
     vertical-align: bottom;
@@ -210,6 +295,9 @@ a.logo, .navigation, footer{
 .page_text{
     margin: 5vw;
 }
+
+/* display: flex gives you flexibility in how you want to the elements to be positioned (in a row or a column). */
+/* The best resource I have to understand flex is found on CSS tricks, specifically as this URL: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 .project{
     display: flex;
     flex-direction: column;
@@ -227,6 +315,7 @@ a.logo, .navigation, footer{
     flex-direction: column;
 }
 
+/* From here to the caption class code block handles the elements in the cards */
 .card_list{
     width: auto;
     display: flex;
@@ -275,6 +364,8 @@ a.logo, .navigation, footer{
     text-align:center;
 }
 
+/* So you can also use the button tag BUT is used when submitting a form. I used the button class for an a tag since we just want to go to another
+page. Either method: button tag or button class works for our case. */
 .button{
     margin-left: 40vw;
     text-align: center;
@@ -291,7 +382,8 @@ a.logo, .navigation, footer{
     font-size: 1.5rem;
     color:var(--accent);
 }
-
+/* :hover changes how the element when the user moves their cursor over an element (also called hovering). When the user hovers over the button, the 
+border of the button increases in 0.8 seconds. */
 .button:hover{
     border: solid 10px var(--accent);
     transition: 0.8s;
@@ -302,6 +394,7 @@ a.logo, .navigation, footer{
 }
 
 #gallery img{
+    /* min-content is another trick when all we care about is fitting content inside of an element. */
     width: min-content;
     margin: 1rem;
 }
@@ -309,6 +402,7 @@ a.logo, .navigation, footer{
 .gallery{
     display:flex;
     flex-direction: column;
+    /* When using display:flex, align-items: center is similar to text-align: center but instead aligns elements. */
     align-items:center;
 }
 
@@ -356,10 +450,12 @@ a.logo, .navigation, footer{
     /* transition: 0.5s; */
 }
 .menu-btn__burger.open:before {
+    /* creates a half of the X */
     transform: rotate(45deg) translate(5px, 8px);
 }
 .menu-btn__burger.open:after{
     width: 28px;
+    /* creates the other half of the X */
     transform: rotate(-45deg) translate(3px, -7px);
 }
 .menu-btn__burger.scrolled{
@@ -427,10 +523,9 @@ a.logo, .navigation, footer{
 }
 
 
-  @media screen and (min-width: 768px) {
 
-  }
-
+/* This is where our website becomes responsive. The line below is like an if-statement. So if the webpage is now 1024px, then we want to change
+how the content is viewed on the website and that is simply what the code does: adjust the content for larger screens. */
   @media screen and (min-width: 1024px) {
     /* menu burger not visible on larger screens */
     .mobile{
