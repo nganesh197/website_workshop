@@ -102,4 +102,4 @@ If the steps were done correctly, you should see changes made to the online repo
 2. Go to Setting > Pages
 3. Make sure you are deploying from source and from the main branch (you can also deploy from different branches too!)
 4. Ensure that the "Enforce HTTPS" is checked
-5. Once those steps have been done, you should be able to see your website at <YOUR-USERNAME>.github.io
+5. Once those steps have been done, you should be able to see your website at \<YOUR-USERNAME\>.github.io
